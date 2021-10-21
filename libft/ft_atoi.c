@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdeanne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 12:41:52 by rdeanne           #+#    #+#             */
+/*   Updated: 2021/10/20 15:32:35 by rdeanne          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_atoi(const char *str)
+{
+	unsigned long	res;
+	unsigned long	max;
+	int				sign;
+
+	sign = 1;
+	res = 0;
+	max = 922337203685477580;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	while (ft_isdigit(*str))
+	{
+		if ((res > max || (res == max && (*str - '0') > 7)) && sign == 1)
+			return (-1);
+		if ((res > max || (res == max && (*str - '0') > 8)) && sign == -1)
+			return (0);
+		res = res * 10 + (*str++ - '0');
+	}
+	return ((int)(sign * res));
+}
