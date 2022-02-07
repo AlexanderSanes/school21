@@ -22,31 +22,52 @@ int	**copy_map(int **map, int size)
 	return (res);
 }
 
-void	left_rotate90_map(int **map, int size)
+int	**left_rotated90_map(int **map, int size)
 {
-	int	**tmpmap = copy_map(map, size);
+	int	**resmap = malloc(sizeof(int *) * size);
+	for (int i = 0; i < size; i++)
+		resmap[i] = malloc(sizeof(int) * size);
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j <  size; j++)
-			map[size - j - 1][i] = tmpmap[i][j];
+			resmap[size - j - 1][i] = map[i][j];
 
-	free_map(tmpmap, size);
+	return (resmap);
 }
 
-void	right_rotate90_map(int **map, int size)
+int	**right_rotated90_map(int **map, int size)
 {
-	int	**tmpmap = copy_map(map, size);
+	int	**resmap = malloc(sizeof(int *) * size);
+	for (int i = 0; i < size; i++)
+		resmap[i] = malloc(sizeof(int) * size);
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j <  size; j++)
-			map[j][size - i - 1] = tmpmap[i][j];
+			resmap[j][size - i - 1] = map[i][j];
 
-	free_map(tmpmap, size);
+	return (resmap);
 }
 
-void	inverse_map(int **map, int size)
+int	**rotated180_map(int **map, int size)
 {
+	int	**resmap = malloc(sizeof(int *) * size);
+	for (int i = 0; i < size; i++)
+		resmap[i] = malloc(sizeof(int) * size);
+	for (int i = 0; i < size; i++)
+		for (int j = 0; j <  size; j++)
+			resmap[j][i] = map[i][j];
+
+	return (resmap);
+}
+
+int	**inversed_map(int **map, int size)
+{
+	int	**resmap = malloc(sizeof(int *) * size);
+	for (int i = 0; i < size; i++)
+		resmap[i] = malloc(sizeof(int) * size);
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j < size; j++)
-			map[i][j] = !map[i][j];
+			resmap[i][j] = !map[i][j];
+	
+	return (resmap);
 }
 
 void	print_map(int **map, int size)
@@ -94,6 +115,38 @@ int	generate_map(int **map, int size)
 	return (0);
 }
 
+int	**get_expanded_map(int **map, int size)
+{
+	int	**exmap = malloc(sizeof(int *) * size * 2);
+	for (int i = 0; i < 2 * size; i++)
+		exmap[i] = malloc(sizeof(int) * size * 2);
+	int	**map1 = left_rotated90_map(map, size);
+	int	**map2 = copy_map(map, size);
+	int	**map3 = rotated180_map(map, size);
+	int	**map4 = right_rotated90_map(map, size);
+
+	for (int i = 0; i < 2 * size; i++)
+	{
+		for (int j = 0; j < 2 * size; j++)
+		{
+			if (i < size && j < size)
+				exmap[i][j] = map1[i][j];
+			if (i > size && j < size)
+				exmap[i][j] = map3[i - size - 1][j];
+			if (i < size && j > size)
+				exmap[i][j] = map2[i][j - size - 1];
+			if (i > size && j > size)
+				exmap[i][j] = map4[i - size - 1][j - size - 1];
+		}
+	}
+	
+	free_map(map1, size);
+	free_map(map2, size);
+	free_map(map3, size);
+	free_map(map4, size);
+	return (exmap);
+}
+
 int	main(int argc, char **argv)
 {
 	int		size;
@@ -120,16 +173,17 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < size; i++)
 		map[i] = malloc(sizeof(int) * size);
 	
-	for (int i = 0; i < n; i++)
-	{
+	// for (int i = 0; i < n; i++)
+	// {
 		// print_map(map, size);
 		generate_map(map, size);
-		if (write_map_to_file(filename, map, size))
+		int **exmap = get_expanded_map(map, size);
+		if (write_map_to_file(filename, exmap, 2 * size))
 			return (1);
 		// inverse_map(map, size);
 		// left_rotate90_map(map,size);
 		// right_rotate90_map(map, size);
-	}
+	// }
 	fclose(fp);
 	free_map(map, size);
 	return (0);
