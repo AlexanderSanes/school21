@@ -1,0 +1,6 @@
+libftprintf.a
+*.o
+*.out
+.vscode
+main.c
+*.txt

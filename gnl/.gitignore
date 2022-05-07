@@ -1,0 +1,7 @@
+libft.a
+*.o
+*.out
+*.sh
+*.txt
+main.c
+main_bonus.c
