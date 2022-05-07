@@ -4,7 +4,7 @@ Realisation some functions from the `libc`.
 
 For compiling the library just run `make`.
 
-• isalpha                             • toupper
+• isalpha                             • toupper</br>
 • isdigit                             • tolower
 • isalnum                             • strchr
 • isascii                             • strrchr
