@@ -2,4 +2,4 @@
 
 Realisation some functions from the `libc`.
 
-For compiling the library just run `make`.
+For compiling the `libft.a` library just run `make`.
