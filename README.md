@@ -3,7 +3,7 @@
 <img src="./readme_assets/rdeanne.png" width="100%">
 
 ## Completed projets list:
-- **Libft**
+- **libft**
 - **get_next_line**
 - **ft_printf**
 - **minitalk**
