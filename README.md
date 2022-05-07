@@ -14,3 +14,5 @@
 - **Philosophers**
 - **Minishell**
 
+Projects details you can find out in the corresponding folders.
+
