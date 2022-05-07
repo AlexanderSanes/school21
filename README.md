@@ -4,15 +4,15 @@
 
 ## Completed projets list:
 - **Libft**
-- **Get_next_line**
-- **Ft_printf**
-- **Minitalk**
-- **So_long**
-- **Push_swap**
+- **get_next_line**
+- **ft_printf**
+- **minitalk**
+- **so_long**
+- **push_swap**
 
 ## In progress:
 - **Philosophers**
-- **Minishell**
+- **minishell**
 
 Projects details you can find out in the corresponding folders.
 
