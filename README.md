@@ -3,10 +3,14 @@
 <img src="./readme_assets/rdeanne.png" width="100%">
 
 ## Completed projets list:
-
-- **Libft**.
+- **Libft**
 - **get_next_line**
 - **ft_printf**
 - **minitalk**
 - **so_long**
 - **push_swap**
+
+##In progress:
+-**Philosophers**
+-**Minishell**
+
