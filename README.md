@@ -11,6 +11,6 @@
 - **push_swap**
 
 ## In progress:
--**Philosophers**
--**Minishell**
+- **Philosophers**
+- **Minishell**
 
