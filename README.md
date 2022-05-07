@@ -10,7 +10,7 @@
 - **so_long**
 - **push_swap**
 
-##In progress:
+## In progress:
 -**Philosophers**
 -**Minishell**
 
