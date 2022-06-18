@@ -11,7 +11,6 @@
 - **push_swap**
 
 ## In progress:
-- **Philosophers**
 - **minishell**
 
 Projects details you can find out in the corresponding folders.
