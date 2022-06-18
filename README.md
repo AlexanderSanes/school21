@@ -9,6 +9,7 @@
 - **minitalk**
 - **so_long**
 - **push_swap**
+- **Philosophers**
 
 ## In progress:
 - **minishell**
