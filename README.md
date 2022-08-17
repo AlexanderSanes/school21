@@ -14,5 +14,4 @@
 ## In progress:
 - **minishell**
 
-Projects details you can find out in the corresponding folders.
-
+You can find detailed information about the projects in the corresponding folders.
