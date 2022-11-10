@@ -3,7 +3,7 @@
 
 #define N 4
 
-int main( void ) {
+int main() {
     Zombie *zombiz = zombieHorde(N, "Chump");
 
     for (size_t i = 0; i < N; i++) {
