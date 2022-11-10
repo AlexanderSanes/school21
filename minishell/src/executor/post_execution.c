@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   post_execution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/06/21 02:53:47 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 18:11:23 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+void	post_execution(t_plit *mini)
 {
-	size_t	i;
-
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+	clear_tokens(*mini->tokens);
+	free(mini->tokens);
+	mini->tokens = NULL;
 }

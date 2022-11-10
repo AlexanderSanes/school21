@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:11:41 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/06/17 11:58:07 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/07 15:55:24 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,6 @@ void	print_export_list(t_list *head)
 	}
 }
 
-int	list_size(t_list *a)
-{
-	t_list	*head;
-	int		i;
-
-	i = 1;
-	head = a;
-	while (head->next != a)
-	{
-		head = head->next;
-		i++;
-	}	
-	return (i);
-}
-
 void	ptr_swap(char **p1, char **p2)
 {
 	char	*tmp;
@@ -66,17 +51,4 @@ void	ptr_swap(char **p1, char **p2)
 	tmp = *p1;
 	*p1 = *p2;
 	*p2 = tmp;
-}
-
-void	free_shell(t_shell *shell)
-{
-	delete_list(&shell->env_list);
-	free(shell);
-	shell = NULL;
-}
-void	exit_shell(t_shell *shell)
-{
-	printf("exit\n");
-	free_shell(shell);
-	exit(0);
 }

@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   duplicate_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/06/18 11:49:27 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 18:11:49 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlen( const char *str)
+void	duplicate_fdout(int *fdout)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (*str != '\0')
+	i = -1;
+	while (fdout[++i] != -1)
 	{
-		i++;
-		str++;
+		dup2(fdout[i], STDOUT_FILENO);
+		close(fdout[i]);
 	}
-	return (i);
+}
+
+void	duplicate_fdin(int *fdin)
+{
+	int	i;
+
+	i = -1;
+	while (fdin[++i] != -1)
+	{
+		dup2(fdin[i], STDIN_FILENO);
+		close(fdin[i]);
+	}
 }

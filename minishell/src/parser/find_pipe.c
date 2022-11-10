@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   find_pipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/11/01 16:08:29 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 19:43:55 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+int	find_pipe(t_parser *data)
 {
-	size_t	i;
+	char	*word;
 
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+	word = check_word(data);
+	if (ft_strlen(word) == ft_strlen(PIPE)
+		&& ft_strncmp(word, PIPE, ft_strlen(PIPE)) == 0)
+		return (1);
+	return (0);
 }

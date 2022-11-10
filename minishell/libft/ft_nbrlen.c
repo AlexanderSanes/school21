@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/11/06 16:57:35 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 19:48:29 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen( const char *str)
+size_t	ft_nbrlen(long nbr)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+	len = 0;
+	while (++len && nbr / 10)
+		nbr /= 10;
+	return (len);
 }

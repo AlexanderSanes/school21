@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   init_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/10/31 17:34:15 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 19:43:05 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+t_parser	*init_parser(char **split)
 {
-	size_t	i;
+	t_parser	*parser;
 
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+	parser = malloc(sizeof(t_parser) * 1);
+	parser->command_is_set = 0;
+	parser->current_command = NULL;
+	parser->head = malloc(sizeof(t_token *) * 1);
+	*parser->head = NULL;
+	parser->index = 0;
+	parser->words = split;
+	return (parser);
 }

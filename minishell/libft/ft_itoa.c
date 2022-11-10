@@ -6,14 +6,13 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 12:45:10 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/10/21 11:03:36 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/10/21 11:03:45 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	digit_div(long	n)
+static int	digit_div(long n)
 {
 	int	size;
 
@@ -28,7 +27,7 @@ static int	digit_div(long	n)
 	return (size);
 }
 
-static char	*get_str_from_num(long	n, size_t	size)
+static char	*get_str_from_num(long n, size_t size)
 {
 	char	*res;
 
@@ -51,7 +50,7 @@ static char	*get_str_from_num(long	n, size_t	size)
 	return (res);
 }
 
-char	*ft_itoa(int	n)
+char	*ft_itoa(int n)
 {
 	char	*res;
 	size_t	size;

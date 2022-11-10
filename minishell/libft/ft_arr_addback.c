@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_arr_addback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/10/30 17:10:13 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 19:48:45 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen( const char *str)
+char	**ft_arr_addback(char **old_array, char *word)
 {
-	size_t	i;
+	int			i;
+	char		**new_array;
+	const int	new_arrlen = (ft_arrlen(old_array) + 1);
 
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+	new_array = ft_arrnew(new_arrlen);
+	if (!new_array)
+		return (NULL);
+	i = -1;
+	while (old_array[++i])
+		new_array[i] = old_array[i];
+	new_array[i] = word;
+	free(old_array);
+	return (new_array);
 }

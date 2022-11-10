@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/10/31 17:26:01 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 19:42:22 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+void	parser(t_plit *split)
 {
-	size_t	i;
+	t_parser	*data;
 
-	i = 0;
-	while (*str != '\0')
+	data = init_parser(split->split_line);
+	while (check_word(data))
 	{
-		i++;
-		str++;
+		if (find_redirect(data))
+			put_redirect(split, data);
+		else if (find_pipe(data))
+			put_pipe(data);
+		else if (command_set(data))
+			add_to_argv(data);
+		else
+			put_command(data);
 	}
-	return (i);
+	split->tokens = data->head;
+	free(data);
 }

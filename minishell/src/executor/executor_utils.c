@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/04/26 18:02:47 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 20:52:56 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+void	fill_executor_struct(t_executer_utils *utils, t_plit *mini)
 {
-	size_t	i;
+	utils->pin = -1;
+	utils->pout = -1;
+	utils->current_fast = *mini->tokens;
+	utils->current_slow = *mini->tokens;
+}
 
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+void	close_pipe(int pin, int pout)
+{
+	if (pin != -1)
+		close(pin);
+	if (pout != -1)
+		close(pout);
 }

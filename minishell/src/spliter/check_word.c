@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   check_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fardath <fardath@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:47:27 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/11/06 19:48:14 by fardath          ###   ########.fr       */
+/*   Created: 2022/10/30 17:13:30 by fardath           #+#    #+#             */
+/*   Updated: 2022/11/06 20:51:47 by fardath          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlen( const char *str)
+void	put_word(t_split_data *data)
 {
-	size_t	i;
+	char	*word;
 
-	i = 0;
-	while (*str != '\0')
+	word = ft_strnew(0);
+	while (check_letter(data) && check_separator(data) == 0)
 	{
-		i++;
-		str++;
+		word = ft_str_addletter(word, check_letter(data));
+		data->index++;
 	}
-	return (i);
+		data->words = ft_arr_addback(data->words, word);
 }

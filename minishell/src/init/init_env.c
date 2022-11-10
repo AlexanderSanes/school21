@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:21:03 by rdeanne           #+#    #+#             */
-/*   Updated: 2022/06/08 16:53:05 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/07 14:46:43 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_shell(t_shell *shell)
+void	inc_shlvl(t_list *env)
 {
-	shell->exit_flag = 0;
-	shell->env_list = NULL;
-	g_sig.sigint = 0;
-	g_sig.sigquit = 0;
+	int	prev_shlvl;
+
+	if (!env)
+		return ;
+	prev_shlvl = ft_atoi(get_list(env, "SHLVL")->val);
+	env = update_list(env, "SHLVL", ft_itoa(prev_shlvl + 1));
 }
 
-void	init_env(t_shell *shell, char **envp)
+void	init_env(t_plit *shell, char **envp)
 {
 	int		i;
 	char	**env_str;
 
 	i = 0;
-	shell->env_list = NULL;
+	shell->env = NULL;
 	while (envp[i])
 	{
 		env_str = parse_env_str(envp[i]);
-		shell->env_list = rotate_list(push_list(shell->env_list, env_str[0], env_str[1]));
+		shell->env = rotate_list(push_list(\
+			shell->env, env_str[0], env_str[1]));
 		free(env_str);
 		i++;
 	}
-	// update_env(shell->env, env);
-	// print_list(env);
+	shell->env = delete_env(shell->env, "OLDPWD");
+	inc_shlvl(shell->env);
 }
