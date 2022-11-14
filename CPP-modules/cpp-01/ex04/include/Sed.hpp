@@ -7,8 +7,8 @@
 class Sed
 {
 private:
-    std::string _inFile;
-    std::string _outFile;
+    std::string _inputFile;
+    std::string _outputFile;
 
 public:
     Sed(std::string filename);

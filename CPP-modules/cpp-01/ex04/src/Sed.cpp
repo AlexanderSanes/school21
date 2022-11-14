@@ -1,7 +1,7 @@
 #include "../include/Sed.hpp"
 
 Sed::Sed(std::string filename) :
-	_inFile(filename), _outFile(filename + ".replace")
+	_inputFile(filename), _outputFile(filename + ".replace")
 {
 }
 
@@ -11,7 +11,7 @@ Sed::~Sed()
 
 void	Sed::replace(std::string s1, std::string s2)
 {
-	std::ifstream input(_inFile);
+	std::ifstream input(_inputFile);
 	if (input.is_open())
 	{
 		std::string	str;
@@ -25,10 +25,10 @@ void	Sed::replace(std::string s1, std::string s2)
 				str.insert(pos, s2);
 				pos = str.find(s1);
 			}
-			std::ofstream output(_outFile);
+			std::ofstream output(_outputFile);
 			if (!output.is_open())
 			{
-				std::cerr << "Error: could not open \"" << _outFile << "\".\n";
+				std::cerr << "Error: could not open \"" << _outputFile << "\".\n";
 				exit(EXIT_FAILURE);
 			}
 			output << str;
@@ -36,7 +36,7 @@ void	Sed::replace(std::string s1, std::string s2)
 		}
 	} else
 	{
-		std::cerr << "Error: could not open \"" << _inFile << "\".\n";
+		std::cerr << "Error: could not open \"" << _inputFile << "\".\n";
 		exit(EXIT_FAILURE);
 	}
 }

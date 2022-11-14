@@ -7,7 +7,7 @@ class HumanA
 {
 private:
     std::string _name;
-    Weapon&     _weapon;	// ref allways is pointing on something (HumanA was burn with a weapon))
+    Weapon&     _weapon;	// ref allways is pointing on something (HumanA was born with a weapon:))
 
 public:
     HumanA();

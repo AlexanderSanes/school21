@@ -7,7 +7,7 @@ class HumanB
 {
 private:
     std::string _name;
-    Weapon*     _weapon;    // pointer can point to NULL (HumanB doesn't have weapon yet)
+    Weapon*     _weapon;    // pointer can point to NULL (HumanB doesn't have a weapon yet)
 
 public:
     HumanB(std::string name);

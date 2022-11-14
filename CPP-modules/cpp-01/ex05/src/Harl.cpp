@@ -24,7 +24,7 @@ Harl::~Harl()
 {
 }
 
-void    Harl::complain( std::string level ) {
+void    Harl::complain(std::string level) {
     t_func  funcs[] = {
 		&Harl::debug,
 		&Harl::info,
