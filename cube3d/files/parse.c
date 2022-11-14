@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 23:01:17 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 15:15:41 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:48:17 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,28 @@ int		get_next_line(int fd, char **line)
 	return (1);
 }
 
+int		ft_get_map_height(char *cub)
+{
+	int		ret;
+	int		fd;
+	int		h;
+	char	*line;
+
+	h = 0;
+	ret = 1;
+	fd = open(cub, O_RDONLY);
+	if (fd == -1)
+		return (ft_strerror(-1));
+	while (ret == 1)
+	{
+		ret = get_next_line(fd, &line);
+		h++;
+		free(line);
+	}
+	close(fd);
+	return (h);
+}
+
 int		ft_parse(t_all *s, char *cub)
 {
 	char	*line;
@@ -75,6 +97,8 @@ int		ft_parse(t_all *s, char *cub)
 	int		ret;
 
 	ret = 1;
+	s->map.y = ft_get_map_height(cub);
+	s->map.x = malloc(sizeof(int) * (s->map.y + 1));
 	fd = open(cub, O_RDONLY);
 	if (fd == -1)
 		return (ft_strerror(-1));
@@ -83,7 +107,7 @@ int		ft_parse(t_all *s, char *cub)
 		ret = get_next_line(fd, &line);
 		if (ft_line(s, line) == -1)
 			ret = -1;
-		free(line);
+		free(line);		
 	}
 	close(fd);
 	if (ret == -1 || ret == -3)

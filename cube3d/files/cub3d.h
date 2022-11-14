@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:09 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 14:48:38 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:32:40 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ typedef struct	s_err
 typedef struct	s_map
 {
 	char			**tab;
-	int				x;
+	int				*x;
+	int				xi;
 	int				y;
 	int				spr;
 }				t_map;

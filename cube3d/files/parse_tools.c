@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 21:41:51 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 15:15:58 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:44:08 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_pos(t_all *s)
 	j = -1;
 	while (++i < s->map.y)
 	{
-		while (++j < s->map.x)
+		while (++j < s->map.x[i])
 		{
 			c = s->map.tab[i][j];
 			if (c == 'N' || c == 'E' || c == 'S' || c == 'W')

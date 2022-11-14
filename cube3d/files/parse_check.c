@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:16:06 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 14:26:56 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:43:47 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_mapcheck(t_all *s)
 	while (i < s->map.y)
 	{
 		j = 0;
-		while (j < s->map.x)
+		while (j < s->map.x[i])
 		{
 			if (s->map.tab[i][j] != '1' && i == 0)
 				return (-1);
@@ -57,7 +57,7 @@ int		ft_mapcheck(t_all *s)
 				return (-1);
 			else if (s->map.tab[i][j] != '1' && j == 0)
 				return (-1);
-			else if (s->map.tab[i][j] != '1' && j == s->map.x - 1)
+			else if (s->map.tab[i][j] != '1' && j == s->map.x[i] - 1)
 				return (-1);
 			j++;
 		}

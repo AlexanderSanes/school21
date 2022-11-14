@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:04 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 14:26:21 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:33:06 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	ft_declare(t_all s, char *cub, int bmp)
 	tex.e = NULL;
 	tex.w = NULL;
 	stk = NULL;
-	map.x = 0;
+	map.x = NULL;
+	map.xi = 0;
 	map.y = 0;
 	map.spr = 0;
 	tex.c = NONE;

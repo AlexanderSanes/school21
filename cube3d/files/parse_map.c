@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 21:41:46 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 14:49:55 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:33:31 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		ft_slablen(char *line)
 			count++;
 		else if (line[i] == 'N' || line[i] == 'S' || line[i] == 'W')
 			count++;
-		else if (line[i] == 'E')
+		else if (line[i] == 'E' || line[i] == ' ')
 			count++;
 		i++;
 	}
@@ -86,9 +86,10 @@ char	*ft_slab(char *line, int *i)
 	while (line[*i] != '\0')
 	{
 		if ((line[*i] == '0' || line[*i] == '1' || line[*i] == 'N')
-			|| (line[*i] == 'E' || line[*i] == 'S' || line[*i] == 'W'))
+			|| (line[*i] == 'E' || line[*i] == 'S' || line[*i] == 'W')
+			|| line[*i] == ' ')
 			slab[j++] = line[*i];
-		else if (line[*i] != ' ')
+		else
 		{
 			free(slab);
 			return (NULL);
@@ -119,8 +120,8 @@ int		ft_map(t_all *s, char *line, int *i)
 	if (s->map.y > 0)
 		free(s->map.tab);
 	s->map.tab = tmp;
-	s->map.y++;
-	s->map.x = ft_slablen(line);
+	s->map.x[s->map.xi] = ft_slablen(line);
+	s->map.xi++;
 	// if ((s->map.x = ft_slablen(s, line)) == -1)
 		// return (-13);
 	return (0);

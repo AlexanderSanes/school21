@@ -6,7 +6,7 @@
 /*   By: rdeanne <rdeanne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:32:10 by cclaude           #+#    #+#             */
-/*   Updated: 2022/11/12 13:50:55 by rdeanne          ###   ########.fr       */
+/*   Updated: 2022/11/14 18:47:50 by rdeanne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_hor(t_all *s)
 
 	y = floor(s->pos.y) + s->ray.w;
 	x = s->pos.x + (y - s->pos.y) * (s->ray.x / s->ray.y);
-	while ((int)floor(x) > 0 && (int)floor(x) < s->map.x)
+	while ((int)floor(x) > 0 && (int)floor(x) < s->map.x[(int)s->pos.y])
 	{
 		if (s->map.tab[(int)(y - 1 + s->ray.w)][(int)floor(x)] == '1')
 		{
