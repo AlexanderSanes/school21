@@ -1,4 +1,4 @@
-NAME	=	ScavTrap
+NAME	=	FragTrap
 
 CXX			=	c++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
@@ -6,9 +6,9 @@ INCLUDE		=	-I include
 
 SRCDIR		=	src
 OBJDIR		=	obj
-HEADERS		=	include/ClapTrap.hpp include/ScavTrap.hpp
+HEADERS		=	include/ClapTrap.hpp include/ScavTrap.hpp include/FragTrap.hpp
 
-SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ		=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)

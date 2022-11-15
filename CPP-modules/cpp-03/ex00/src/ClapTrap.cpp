@@ -18,8 +18,8 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
-    *this = rhs;
     std::cout << "Copy constructor is called\n";
+    *this = rhs;
     return;
 }
 
@@ -35,19 +35,25 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap& rhs)
 
 void    ClapTrap::attack(std::string const& target)
 {
+    if (_HP <= 0)
+	{
+		std::cout << "Attack unavailable! ClapTrap " << _name << " is dead...\n";
+		return;
+	}
     if (_energyPoints <= 0)
     {
         std::cout << "ClapTrap " << _name << " is out of energy!\n";
         return;
     }
     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!\n";
-    _energyPoints -= 1;
+    _energyPoints--;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
     if (_HP <= amount)
     {
+        _HP = 0;
         std::cout << "ClapTrap " << _name << " is dead!\n";
         return;
     }
@@ -57,12 +63,12 @@ void    ClapTrap::takeDamage(unsigned int amount)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (_energyPoints <= amount)
+    if (_energyPoints <= 0)
     {
         std::cout << "ClapTrap " << _name << " is out of energy!\n";
         return;
     }
     std::cout << "ClapTrap " << _name << " repairs itself for " << amount << " hit points!\n";
-    _energyPoints -= 1;
+    _energyPoints--;
     _HP += amount;
 }

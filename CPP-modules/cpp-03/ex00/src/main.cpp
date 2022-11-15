@@ -4,7 +4,7 @@
 
 int main() {
 	ClapTrap *c1 = new ClapTrap();
-	ClapTrap *c2 = new ClapTrap("Zoro");
+	ClapTrap *c2 = new ClapTrap("Zizo");
 	ClapTrap *c3 = new ClapTrap(*c1);
 
 	std::cout << std::endl;
