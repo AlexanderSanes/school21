@@ -19,3 +19,4 @@
 - **LinuxMonitoring (Bash)**
 
 You can find detailed information about the projects in the corresponding folders.
+<embed src="./readme_assets/Poletaev_Aleksandr.pdf"/>
