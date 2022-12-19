@@ -1,6 +1,6 @@
-<h1 align="center">Rdeann's <a href="https://21-school.ru" target="_blank">School 21</a> projects</h1>
+# Rdeann's [School 21](https://21-school.ru) projects
 
-<img src="./readme_assets/rdeanne.png" width="100%">
+![](./readme_assets/rdeanne.png)
 
 ## Completed projets list:
 - **Libft**
@@ -19,3 +19,4 @@
 - **LinuxMonitoring (Bash)**
 
 You can find detailed information about the projects in the corresponding folders.
+![](./readme_assets/Summary_Poletaev.png)
