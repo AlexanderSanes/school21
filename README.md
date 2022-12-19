@@ -10,8 +10,12 @@
 - **so_long**
 - **push_swap**
 - **Philosophers**
+- **minishell**
+- **cub3d**
+- **CPP Modules**
 
 ## In progress:
-- **minishell**
+- **NetPractice**
+- **LinuxMonitoring (Bash)**
 
 You can find detailed information about the projects in the corresponding folders.
