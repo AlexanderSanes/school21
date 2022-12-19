@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 class Base
 {
@@ -52,6 +53,8 @@ void    identify(Base& p)
 
 int     main()
 {
+    srand(time(0));
+
     Base*   a = generate();
     Base*   b = generate();
     Base*   c = generate();
