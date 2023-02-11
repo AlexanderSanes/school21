@@ -1,0 +1,114 @@
+html, body {
+  height: 100%;
+  background: linear-gradient(to right, #002d53 0%, #00898c 100%);
+}
+
+div.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 20%;
+  min-height: 200px;
+}
+
+div.header p {
+  background: rgb(0, 30, 53, 0.4);
+	margin-left: 5%;
+  padding: 1%;
+  border-radius: 10px;
+  width: 10em;
+  color:aliceblue;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+div.header p.fio {
+  font-size: 28pt;
+}
+
+div.header p.vocation {
+  font-size: 20pt;
+}
+
+.textcols {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+  height: 80%
+}
+
+.textcols-item {
+  padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+	padding-left: 4%;
+	background: #ffffff;
+  min-width: 215px;
+}
+
+.textcols-item + .textcols-item {
+  background: #EFEFEF;
+  flex: 4;
+  min-width: none;
+}
+
+h3 {
+  font-size: 20pt;
+  margin-bottom: 10px;
+}
+
+a[href^="tel:"] {
+	color: #000;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+ul {
+  list-style: disc none inside;
+}
+
+.edu, .contacts, .skills {
+  margin-top: 20px;
+}
+
+.courses, .projects {
+  margin-top: 30px;
+}
+
+.textcols ul {
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+.projects li {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.contacts li {
+  margin: 0;
+	padding: 10px 0 10px 30px;
+	list-style: none;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 25px;
+}
+
+.contacts li:nth-child(1) {
+	background-image: url("img/telegram-icon.png");
+}
+
+.contacts li:nth-child(2) {
+	background-image: url("img/mail-icon.png");
+}
+
+.contacts li:nth-child(3) {
+	background-image: url("img/github-icon.png");
+}
+
+.contacts li:nth-child(4) {
+	background-image: url("img/phone-icon.png");
+}
