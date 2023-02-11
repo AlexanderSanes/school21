@@ -17,6 +17,15 @@ re:
 	@printf "Rebuild configuration ${name}...\n"
 	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env up -d --build
 
+portainer:
+	@printf "Building portainer ${name}...\n"
+	@docker volume create portainer_data
+	@docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+rm-portainer:
+	@docker rmi -f portainer/portainer-ce
+	@docker rm -f portainer
+	@docker volume rm portainer_data
+
 clean: down
 	@printf "Cleaning configuration ${name}...\n"
 	@docker system prune -a
