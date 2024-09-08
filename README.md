@@ -15,8 +15,7 @@
 - **CPP Modules**
 
 ## In progress:
-- **NetPractice**
-- **LinuxMonitoring (Bash)**
+- **Java Bootcamp**
 
 You can find detailed information about the projects in the corresponding folders.
 ![](./readme_assets/Summary_Poletaev.png)
