@@ -1,4 +1,4 @@
-# Ьinishell 21
+# Minishell 21
 ## As beautiful as shell
 The objective of this project is to create a simple shell
 to learn about processes and file discriptors.
